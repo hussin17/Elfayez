@@ -1,0 +1,99 @@
+:root {
+    --primary: #09527D;
+    --secondary: #E13510;
+    --text: #575757;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: 0;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+/* p {
+  font-size: 20px;
+  color: var(--text);
+} */
+header nav {
+    background: var(--primary);
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.btn-danger {
+    background: var(--secondary) !important;
+    border: 0 !important;
+}
+
+.btn-primary {
+    background-color: var(--primary) !important;
+    border: 0 !important;
+}
+
+header .categories {
+    width: 50%;
+    background-color: var(--secondary);
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+    position: relative;
+    bottom: 10px;
+}
+
+/* Courses Section */
+.course-details {
+    /* direction: rtl; */
+    margin: 50px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.course-details img {
+    width: 40% !important;
+}
+
+.course-details .details {
+    direction: rtl;
+}
+
+.course-details .details h2 {
+    font-size: 34px;
+    color: var(--secondary);
+    margin-bottom: 30px;
+}
+
+.course-details .details ul {
+    color: var(--primary);
+    font-size: 24px;
+    line-height: 3rem;
+}
+
+footer {
+    background-color: var(--primary);
+    padding: 50px;
+    color: #FFF;
+    display: flex;
+    justify-content: start;
+}
+
+footer div {
+    margin: 0 50px;
+}
+
+footer div p,
+.media i {
+    font-size: 20px;
+    margin: 5px;
+}

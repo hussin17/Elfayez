@@ -1,0 +1,248 @@
+:root {
+    --primary: #09527D;
+    --secondary: #E13510;
+    --text: #575757;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: 0;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+/* p {
+    font-size: 20px;
+    color: var(--text);
+} */
+header nav {
+    background: var(--primary);
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.btn-danger {
+    background: var(--secondary) !important;
+    border: 0 !important;
+}
+.btn-primary {
+    background-color: var(--primary) !important;
+    border: 0 !important;
+}
+header {
+    background-image: url('../img/4.png.png');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+header .categories {
+    width: 50%;
+    background-color: var(--secondary);
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+    position: relative;
+    bottom: 10px;
+}
+
+.bg-layer{
+    color: #FFF;
+    background: #0007;
+    height: inherit;
+}
+
+header .header-container {
+    display: flex;
+    height: inherit;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+header .header-container p {
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+header .header-container h1 {
+    font-size: 50px;
+}
+
+header .header-container .search-bar {
+    direction: rtl;
+    width: 50%;
+}
+header .header-container .search-bar input { 
+    width: 80%;
+    padding: 20px;
+    border-radius: 20pc;
+    border: 0;
+    outline: none;
+    color: var(--secondary);
+    font-weight: bold;
+    /* letter-spacing: 1.7px; */
+}
+header .header-container .search-bar button {
+    background: var(--secondary);
+    padding: 20px;
+    border-radius: 20pc 0 0 20pc;
+    color: white;
+    border: 0;
+    outline: none;
+    position: relative;
+    left: 50px;
+}
+
+.features {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding-bottom: 80px;
+}
+.features .card {
+    padding: 50px 80px;
+    background-color: #FFF;
+    color: var(--text);
+    position: relative;
+    bottom: 50px;
+    text-align: center;
+    margin: auto;
+    border: 0;
+    box-shadow: 0px 0px 20px 10px #3333;
+}
+.features .card i {
+    margin: auto;
+    color: #FFF;
+    background-color: var(--secondary);
+    padding: 30px;
+    /* height: 120px; */
+    font-size: 50px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.features .towCard {
+    color: #FFF;
+    background-color: var(--secondary);
+}
+.features .towCard i {
+    background-color: #FFF;
+    color: var(--secondary);
+}
+
+.note {
+    width: 80%;
+    background-color: var(--primary);
+    color: #FFF;
+    padding: 10px 20px;
+    margin: auto;
+    font-size: 20px;
+    position: relative;
+    bottom: 20px;
+    text-align: center;
+}
+
+.roadmap {
+    direction: rtl;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    justify-items: center;
+    margin-bottom: 100px;
+}
+.roadmap .card {
+    color: var(--text);
+    width: 45%;
+    border: 0;
+    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.1);
+    padding: 50px 50px 20px;
+    align-items: flex-start;
+}
+.roadmap .card p { 
+    font-size: 20px;
+}
+
+.courses {
+    direction: rtl;
+    width: 80%;
+    margin: auto;
+}
+.courses .labels {
+    display: flex;
+    margin-bottom: 50px;
+}
+.courses .labels h2 {
+    margin-left: 50px;
+}
+.courses .labels h2:hover {
+    transition: 0.3s all linear;
+    border-bottom: 5px solid var(--secondary);
+}
+.courses .cards {
+    display: flex;
+    justify-content: space-evenly;
+}
+.courses .cards .card { 
+    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+.courses .cards .card img{
+    width: 300px;
+    margin: auto;
+}
+.courses .cards .card .details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.courses .cards .card .details p{
+    border-bottom: 5px solid var(--primary);
+    font-size: 20px;
+    color: var(--text);
+}
+
+.quality {
+    width: 80%;
+    margin: 150px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.quality div {
+    margin: 0 30px;
+    text-align: center;
+    padding: 20px;
+    color: var(--text);
+}
+.quality div h1 {
+    font-size: 28px;
+    flex-direction: column;
+    border-bottom: 5px solid var(--secondary);
+}
+.quality div p { 
+    font-size: 20px;
+}
+
+footer {
+    background-color: var(--primary);
+    padding: 50px;
+    color: #FFF;
+    display: flex;
+    justify-content: start;
+}
+footer div {
+    margin: 0 50px;
+}
+footer div p, .media i {
+    font-size: 20px;
+    margin: 5px;
+}
