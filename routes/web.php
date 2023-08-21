@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\AdminMajorController;
 use App\Http\Controllers\Admin\AdminRatesController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\RolesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,12 +52,15 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/course-details/{id}', [CoursesController::class, 'index'])->name('course-details');
 Route::get('/lesson/{course_id}/{lesson_id}', [CoursesController::class, 'lessons'])->name('lessons');
 
-
 // Admin Authentication Pages
 Route::name('admin.')->prefix('admin-area')->middleware(['auth', 'verified', 'role:admin'])->group(function () {
     Route::resource('/admin-area', AdminHomeController::class)->middleware(['auth', 'verified', 'role:admin']);
 
     Route::get('/', [AdminHomeController::class, 'index']);
+
+    // Roles & Permissions
+    Route::resource('/roles', RolesController::class);
+    Route::resource('/permissions', PermissionsController::class);
 
     Route::resource('/rates', AdminRatesController::class);
 
