@@ -30,6 +30,28 @@
                             @enderror
                         </div>
                     </div>
+
+                    <div class="row">
+                        {{-- Role Permissions --}}
+                        <div class="mb-3 col-md-4">
+                            <label for="validationCustom01">الاوذونات</label>
+                            @if ($role->permissions)
+                                <select name="" id="">
+                                    @foreach ($role->permissions as $role_permission)
+                                        <span>{{ $role_permission->name }}</span>
+                                    @endforeach
+                                </select>
+                            @endif
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>ادخل الدور</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    
+
                     <button class="btn btn-primary" type="submit">حفظ</button>
                 </form>
             </div>

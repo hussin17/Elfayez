@@ -14,13 +14,7 @@
 
             {!! $course->description !!}
 
-            {{-- <ul>
-                <li>2 ساعة فيديو تدريبية</li>
-                <li>شهادة اتمام الدورة من نوفيل اكاديمي</li>
-                <li>شهادة اتمام الدورة من نوفيل اكاديمي</li>
-                <li>متابعة أثناء الدورة وبعدها من قبل فريق مختص</li>
-            </ul> --}}
-            <a href="{{ route('lessons', [$course->id, 1]) }}" class="mt-5 btn btn-danger">انضم الان</a>
+            <a href="{{ route('lessons', [$course->id, 0]) }}" class="mt-5 btn btn-danger">انضم الان</a>
         </div>
     </section>
 @endsection

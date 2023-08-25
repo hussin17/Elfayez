@@ -1,6 +1,6 @@
 <footer>
     <div>
-        <img src="{{asset('img/logo.jpeg')}}" alt="" class="img-fluid w-25">
+        <img src="{{asset('img/logo-light.jpeg')}}" alt="" class="img-fluid w-25">
         <span>منصتك نحو النجاح</span>
     </div>
     <div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RolesController extends Controller
@@ -12,7 +13,7 @@ class RolesController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
+        $roles = Role::whereNotIn('name', ['admin'])->get();
         return view('admin.roles.index', compact('roles'));
     }
 
@@ -48,7 +49,8 @@ class RolesController extends Controller
      */
     public function edit(Role $role)
     {
-        return view('admin.roles.edit', compact('role'));
+        $permissions = Permission::all();
+        return view('admin.roles.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -59,14 +61,16 @@ class RolesController extends Controller
         $validated = $request->validate(['name' => 'required']);
         $role->update($validated);
 
-        return redirect()->back()->with("success", "تم التعديل بنجاح"); 
+        return redirect()->back()->with("success", "تم التعديل بنجاح");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Role $role)
     {
-        //
+        $role->delete();
+
+        return redirect()->back()->with('success', "تم الحذف بنجاح");
     }
 }

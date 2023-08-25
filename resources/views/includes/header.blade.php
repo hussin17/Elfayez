@@ -17,11 +17,11 @@
         <div class="bg-layer">
 
             <nav>
-                <div class="logo img-fluid">
+                <a href="{{url('/')}}" class="logo img-fluid">
                     <img src="{{ asset('img/logo-light.jpeg') }}" width="70" alt="" srcset="">
-                </div>
+                </a>
                 <div class="links">
-                    <i class="fa fa-store text-light fa-2xl m-2"></i>
+                    <i class="m-2 fa fa-store text-light fa-2xl"></i>
                     <a class="btn btn-danger" href="">تسجيل دخول</a>
                     <a class="btn btn-outline-success text-light" href="">حساب جديد</a>
                 </div>

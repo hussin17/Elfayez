@@ -8,26 +8,33 @@
     <h1 dir="rtl" class="container mt-5 mb-5 courseName">مرحبا بك في كورس {{ $course->name }}</h1>
     <section class="container lessons">
         <div class="main-lesson">
-            @if ($lessonVideo->video->type === '2')
+            {{-- Local --}}
+            @if ($main_lesson->video->type === '2')
                 <video controls>
-                    <source src="{{ asset('admin/upload/lessons/videos/' . $firstLesson->video->name) }}">
+                    <source src="{{ asset('admin/upload/lessons/videos/' . $main_lesson->video->name) }}">
                 </video>
             @endif
-            @if ($firstLesson->video->type === '1')
+            {{-- Youtube --}}
+            @if ($main_lesson->video->type === '1')
                 @php
-                    $videoLink = explode('/', $firstLesson->video->name);
+                    $videoLink = explode('/', $main_lesson->video->name);
                 @endphp
                 <iframe src="https://www.youtube.com/embed/{{ end($videoLink) }}" frameborder="0"></iframe>
             @endif
+            {{-- Controlles => Get Next Row --}}
             <div class="controlles">
                 <div class="previous">
-                    <i class="fa-solid fa-caret-left"></i>
-                    <span>السابق</span>
+                    @if ($previousLesson)
+                        <i class="fa-solid fa-caret-left"></i>
+                        <a href="{{ $previousLesson->id }}">السابق</a>
+                    @endif
                 </div>
-                <div class="lessonName">{{ $lessonVideo->name }}</div>
-                <div class="previous">
-                    <span>التالي</span>
-                    <i class="fa-solid fa-caret-right"></i>
+                <div class="lessonName">{{ $main_lesson->name }}</div>
+                <div class="next">
+                    @if ($nextLesson)
+                        <a href="{{ $nextLesson->id }}">التالي</a>
+                        <i class="fa-solid fa-caret-right"></i>
+                    @endif
                 </div>
             </div>
 
@@ -56,7 +63,7 @@
                             </tr>
                             @php
                                 use App\Models\LessonFile;
-                                $files = LessonFile::where('lesson_id', $firstLesson->id)->get();
+                                $files = LessonFile::where('lesson_id', $main_lesson->id)->get();
                             @endphp
                             @foreach ($files as $i => $file)
                                 <tr>
@@ -72,8 +79,7 @@
                         <div class="gellary">
                             @foreach ($lessonImages as $image)
                                 <div class="card">
-                                    <img src="{{ asset("admin/upload/lessons/images/$image->name") }}"
-                                        alt="">
+                                    <img src="{{ asset("admin/upload/lessons/images/$image->name") }}" alt="">
                                 </div>
                             @endforeach
                         </div>
@@ -87,15 +93,17 @@
                 @foreach ($lessons as $lesson)
                     <li>
                         @if ($lesson->video->type === '2')
-                            <video controls width="300" height="180">
+                            <video controls width="300" height="200">
                                 <source src="{{ asset('admin/upload/lessons/videos/' . $lesson->video->name) }}">
                             </video>
+                            <p class="text-danger">{{ $lesson->name }}</p>
                         @endif
                         @if ($lesson->video->type === '1')
                             @php
                                 $videoLink = explode('/', $lesson->video->name);
                             @endphp
                             <iframe src="https://www.youtube.com/embed/{{ end($videoLink) }}" frameborder="0"></iframe>
+                            <p class="text-danger">{{ $lesson->name }}</p>
                         @endif
                     </li>
                 @endforeach

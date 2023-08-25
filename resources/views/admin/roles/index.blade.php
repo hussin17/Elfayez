@@ -30,6 +30,7 @@
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <form action="{{ route('admin.roles.destroy', $role->id) }}" method="POST"
+                                                onsubmit="return confirm('هل تريد الحذفف')"
                                                 class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
